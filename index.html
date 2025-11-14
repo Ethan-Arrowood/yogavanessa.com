@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blissful Life - Yoga & Massage Redesign Concept</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quattrocento', serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Color Variables for Easy Reference */
+        :root {
+            --primary-cyan: #70d9e1;
+            --secondary-purple: #5848b7;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #fafafa;
+            --white: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            display: block;
+            height: 40px;
+        }
+
+        nav .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+                        url('aspen-trees.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            font-style: italic;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary-purple);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #6d5ac9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(88, 72, 183, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--secondary-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #90e2df 0%, #70d9e1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        /* Placeholder images with icons */
+        .service-image.yoga {
+            background: url('yoga-pose.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-image.retreats {
+            background: url('retreats.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-image.resources {
+            background: url('cookbook.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Massage CTA Section */
+        .massage-cta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .massage-image {
+            width: 100%;
+            height: 500px;
+            background: url('massage-background.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+        }
+
+        .massage-content h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 1.5rem;
+        }
+
+        .massage-content .tagline {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .massage-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Gift Certificates Section */
+        .gift-certificates {
+            position: relative;
+            padding: 6rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('waterfall-background.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .gift-certificates h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+        }
+
+        .gift-certificates p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 5rem 2rem;
+            background: var(--primary-cyan);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+
+            .massage-cta {
+                grid-template-columns: 1fr;
+            }
+
+            .massage-image {
+                height: 300px;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .gift-certificates h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Design Notes Section (for your reference) */
+        .design-notes {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .design-notes h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .design-notes ul {
+            color: #856404;
+            margin-left: 2rem;
+        }
+
+        .design-notes li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Blissful Life">
+            </a>
+            <ul>
+                <li><a href="#yoga">Yoga</a></li>
+                <li><a href="#retreats">Retreats</a></li>
+                <li><a href="#massage">Massage</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" role="img" aria-label="Golden aspen trees reaching toward blue sky">
+        <div class="hero-content">
+            <h1>Blissful Life</h1>
+            <p class="tagline">Why feel okay, when you can feel great?</p>
+            <a href="#massage" class="btn btn-primary">Book a Massage</a>
+        </div>
+    </section>
+
+    <!-- Massage CTA Section -->
+    <section class="massage-cta" id="massage">
+        <div class="massage-image" role="img" aria-label="Massage therapy session with yellow flower accent"></div>
+        <div class="massage-content">
+            <h2>Feel Your Best</h2>
+            <p class="tagline">Why feel okay, when you can feel great?</p>
+            <p>Our therapeutic massage services are designed to help you relax, recover, and rejuvenate. Whether you're seeking relief from tension or simply want to treat yourself, we're here to support your wellness journey.</p>
+            <a href="#booking" class="btn btn-primary">Book a Massage</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Additional Services</h2>
+            <div class="services-grid">
+                <!-- Yoga Card -->
+                <div class="service-card">
+                    <div class="service-image yoga" role="img" aria-label="Aerial view of woman in yoga pose on wooden floor"></div>
+                    <div class="service-content">
+                        <h3>Yoga</h3>
+                        <p>Experience transformative yoga classes designed for all levels. From gentle flows to dynamic vinyasa, find your practice and deepen your connection to mind and body.</p>
+                        <a href="#yoga" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Retreats Card -->
+                <div class="service-card">
+                    <div class="service-image retreats" role="img" aria-label="Beautiful Hawaiian beach with turquoise water and white sand"></div>
+                    <div class="service-content">
+                        <h3>Retreats</h3>
+                        <p>Join us for rejuvenating retreats in beautiful locations. Escape the everyday and immerse yourself in wellness, nature, and community.</p>
+                        <a href="#retreats" class="btn btn-secondary">View Retreats</a>
+                    </div>
+                </div>
+
+                <!-- Resources Card -->
+                <div class="service-card">
+                    <div class="service-image resources" role="img" aria-label="Blissful Life Community Cookbook cover featuring healthy food and community members"></div>
+                    <div class="service-content">
+                        <h3>Blissful Life Resources</h3>
+                        <p>Access guides, recipes, and tools to support your wellness journey. From the Sivananda Companion to our Community Cookbook, find inspiration here.</p>
+                        <a href="#resources" class="btn btn-secondary">Explore Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Certificates Section -->
+    <section class="gift-certificates" role="img" aria-label="Serene Icelandic waterfall with rocky landscape">
+        <div class="container">
+            <h2>Massage Gift Certificates</h2>
+            <p>Share the gift of wellness with someone special. Perfect for birthdays, holidays, or just because.</p>
+            <a href="#gift" class="btn btn-secondary">Purchase Gift Certificate</a>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Begin Your Journey?</h2>
+            <p>Join our community and start feeling your best today.</p>
+            <a href="#contact" class="btn btn-secondary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#classes">Classes</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#contact">Contact</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <p>&copy; 2025 Blissful Life. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
