@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage Services - Blissful Life</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quattrocento', serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary-cyan: #70d9e1;
+            --secondary-purple: #5848b7;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #fafafa;
+            --white: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            display: block;
+            height: 40px;
+        }
+
+        nav .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-cyan);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('massage-background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary-purple);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #6d5ac9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(88, 72, 183, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Location Info Section */
+        .location-info {
+            background: var(--primary-cyan);
+            color: var(--white);
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+
+        .location-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .location-info strong {
+            font-weight: 700;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .intro-section h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            text-align: center;
+        }
+
+        /* Massage Menu Section */
+        .massage-menu {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .menu-intro {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .massage-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .massage-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .massage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .massage-card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .massage-card p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary-cyan);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card .duration {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            font-weight: 700;
+        }
+
+        /* About Vanessa Section */
+        .about-vanessa {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .about-vanessa h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .benefits-section h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-cyan);
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-cyan);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Locations Section */
+        .locations-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .locations-section h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-purple);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .location-card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .location-card p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-card .note {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: var(--primary-cyan);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-section .contact-info {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            nav ul.active {
+                max-height: 300px;
+            }
+
+            nav ul li {
+                padding: 0;
+            }
+
+            nav ul a {
+                display: block;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Blissful Life">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#yoga">Yoga</a></li>
+                <li><a href="#retreats">Retreats</a></li>
+                <li><a href="massage.html">Massage</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" role="img" aria-label="Massage therapy session with yellow flower accent">
+        <div class="hero-content">
+            <h1>Massage</h1>
+            <p class="tagline">Energy, compassion, and a nurturing heart for each client</p>
+            <a href="https://book.squareup.com/appointments/83979422-1214-4cd0-86a9-a5b96cdee36e/location/AAW9EA1N4TXVT/services" class="btn btn-primary">Book a Massage</a>
+        </div>
+    </section>
+
+    <!-- Location Info Bar -->
+    <section class="location-info">
+        <div class="container">
+            <p><strong>Dillon Location:</strong> Inside Balanced Therapeutics (three doors down from Summit Sol Yoga)</p>
+            <p><strong>Sunday Hours:</strong> 1:00-6:00pm | <strong>Also at Harmony Spa, Breck:</strong> Wednesday & Saturday 11:15-6pm</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>Massage Menu</h2>
+            <p class="menu-intro">We specialize in deep tissue, relaxation, and emotional release. We encourage massage not only for pain relief, but weekly or bi-weekly for contentment, energy, and well-being. We are currently offering between 1-2 hour massages. You have the option to upgrade your massage with soothing hot stones and/or nourishing essential oils (sweet orange, cinnamon, or vanilla).</p>
+        </div>
+    </section>
+
+    <!-- Massage Types Section -->
+    <section class="massage-menu">
+        <div class="container">
+            <div class="massage-grid">
+                <!-- Swedish Massage -->
+                <div class="massage-card">
+                    <h3>Swedish Massage</h3>
+                    <p>The most gentle and relaxing massage possible. If you simply want to feel tranquil in your body, this is your best choice. We use slow, soothing movements to ease your mind and heart, leaving you positively glowing.</p>
+                </div>
+
+                <!-- Fusion Massage -->
+                <div class="massage-card">
+                    <h3>Fusion Massage</h3>
+                    <p>A wonderful collection of techniques combining the best-known therapies to balance your energetic, emotional, spiritual, and physical wellbeing. This is perfect for those who want a deep massage uniquely tailored to their body. We will use our intuition to facilitate mind/body transformation, drawing from many possible styles such as: Hawaiian, Swedish, Deep Tissue, N.M.T., Passive Stretching, Energetic Releasing, Reflexology, and more.</p>
+                </div>
+
+                <!-- Deep Tissue -->
+                <div class="massage-card">
+                    <h3>Deep Tissue</h3>
+                    <p>Ideal for releasing scar tissue, recovering from injuries, and undoing challenging knots. With an emphasis on focused healing, Deep Tissue massage is designed to generate a lasting shift long after the massage is over. While the goal of this style of massage is beyond pure relaxation, many people enjoy the stress relieving benefits of this restorative work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="duration">1 Hour</div>
+                    <div class="price">$100</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="duration">1.5 Hours</div>
+                    <div class="price">$150</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="duration">2 Hours</div>
+                    <div class="price">$200</div>
+                </div>
+            </div>
+            <a href="https://book.squareup.com/appointments/83979422-1214-4cd0-86a9-a5b96cdee36e/location/AAW9EA1N4TXVT/services" class="btn btn-primary">Book Your Session</a>
+        </div>
+    </section>
+
+    <!-- About Vanessa Section -->
+    <section class="about-vanessa">
+        <div class="container">
+            <h2>About Vanessa Charles</h2>
+            <div class="about-content">
+                <p>Vanessa has been blessed with being a massage practitioner since 2010 and a yoga teacher since 2004. She loves how massage can be as therapeutic as counseling without all the talking. She is a proud mother of a five-year-old and adores the balance between being a mom and enjoying the peacefulness of giving massages.</p>
+                <p>She studied in Hawaii and specializes in Lomi, Deep Tissue, Ashiatsu (massaging with her feet) and Swedish Massage. She is passionate about helping people feel their best.</p>
+                <p>If you are looking for a therapeutic or relaxation massage Vanessa is a good fit for you. Her style is slow flow with deep listening to your body for guidance. She releases your muscles as well as balances your energy with Polarity, Shiatsu, Lomi, and more. You will end your massage feeling deeply relaxed yet refreshed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Benefits of Massage</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <p>Promotes relaxation and reduces stress and anxiety</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Reduces depression and helps fulfill emotional needs through therapeutic touch</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Increases academic performance and reduces touch aversion</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Improves lifestyle habits and overall well-being</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Prevents excessive scar formation in muscles, maintaining flexibility and strength</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Increases detoxification and decreases muscle pain</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Increases range of motion by breaking up scar tissue</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Shortens recovery time from workouts and injuries</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Improves connective tissue healing and increases collagen production</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Improves posture and reduces the appearance of cellulite</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Improves sleep quality and increases digestion</p>
+                </div>
+                <div class="benefit-item">
+                    <p>Relieves constipation and supports digestive health</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Vanessa is one of the most gifted massage therapist I know! She has a very intuitive and caring, loving touch. I wish she lived closer so I could get regular massage from her!"</p>
+                    <p class="testimonial-author">- Caitlin Matteson, Yoga Teacher and Esthetician (Seattle, WA)</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"What is the best, most relaxing, most self-indulgent thing I do for myself? A massage from Vanessa of course! She works for the client- listens and cares so I leave feeling renewed."</p>
+                    <p class="testimonial-author">- Peggy Zimmerman, Yogini, Grandma, Adventurer (Olympia, WA)</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"It felt so good I fell asleep and woke up feeling 10 years younger!"</p>
+                    <p class="testimonial-author">- Carl Montoya, Merchant Marine (Grand Lake, Colorado)</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Vanessa's massage heals my whole self. Mind, body, spirit. I'm left feeling soft, peaceful, cherished, and relaxed. If I could have one every week I would be the healthiest person in town! I regularly recommend Vanessa's massages to anyone who wants the very best!"</p>
+                    <p class="testimonial-author">- Tina Mansfield, Counselor (Seattle, WA)</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Vanessa is a massage GURU. I came to her full of knots and she worked every inch of my body. I've never had a therapist be so in tune with my body and pains. 10/10. I walked out of there a new person."</p>
+                    <p class="testimonial-author">- Google Reviews (2/11/23)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations-section">
+        <div class="container">
+            <h2>Locations</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3>Dillon, Colorado</h3>
+                    <p>Blissful Life Massage</p>
+                    <p>256 Dillon Ridge Road, B-24</p>
+                    <p>Upstairs, next to Summit Sol Yoga</p>
+                    <p>Dillon, Colorado</p>
+                </div>
+                <div class="location-card">
+                    <h3>Olympia, Washington</h3>
+                    <p>Blissful Life Massage</p>
+                    <p>Westside Wellness</p>
+                    <p>222 Kenyon St NW</p>
+                    <p>Olympia, WA 98502</p>
+                    <p class="note">Available every 3-4 months for a few days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Feel Your Best?</h2>
+            <p>Book your massage today and experience the healing power of therapeutic touch.</p>
+            <p class="contact-info">Call: 360-388-8980</p>
+            <a href="https://book.squareup.com/appointments/83979422-1214-4cd0-86a9-a5b96cdee36e/location/AAW9EA1N4TXVT/services" class="btn btn-primary">Book Online</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="massage.html">Massage</a>
+                <a href="#yoga">Yoga</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2025 Blissful Life. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+        const navLinks = document.querySelectorAll('nav ul a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>

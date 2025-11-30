@@ -1,36 +1,36 @@
 # Yoga Vanessa Website Redesign - Claude Code Context
 
-## 🎯 Quick Status Summary
+## Quick Status Summary
 
-**Current Phase**: Phase 1 Complete ✅ - Ready for GitHub Pages Deployment
 **Last Updated**: November 13, 2024
-**Status**: Production-ready HTML/CSS with all images integrated
+**Status**: Live on GitHub Pages
 
 **What's Done:**
 - ✅ Clean redesign with professional color palette
-- ✅ All real images integrated (hero, massage, yoga, retreats, resources, gift certificates)
+- ✅ All real images integrated
 - ✅ Logo integrated in navigation
 - ✅ Massage services prominently featured
 - ✅ Accessibility with ARIA labels
-- ✅ Git repository initialized and committed
 - ✅ Mobile responsive design
+- ✅ Deployed to GitHub Pages
 
-**Next Steps:**
-1. Deploy to GitHub Pages
-2. Content refinement (update links, booking URLs)
-3. Live testing on mobile/tablet devices
+**Next Priorities:**
+1. Content refinement (update placeholder links: `#booking`, `#contact`, `#yoga`, etc.)
+2. Live testing on mobile/tablet devices
+3. Performance optimization (image compression)
 
 ---
 
 ## Project Overview
-I'm redesigning the homepage for yogavanessa.com, a yoga and massage wellness business. The current site has serious design issues: too many competing bright colors, text-on-text readability problems, and excessive image layering. This HTML file is a clean redesign that demonstrates the improved design direction with all real images integrated.
+I'm redesigning the homepage for yogavanessa.com, a yoga and massage wellness business. The current site has design issues: too many competing bright colors, text-on-text readability problems, and excessive image layering. This HTML file is a clean redesign that demonstrates the improved design direction with all real images integrated.
 
-## Current Design Problems (Original Site)
-1. **Color chaos**: Multiple purples (#5040ae, #7161d0, #5848b7) competing with multiple cyans (#90e2df, #70d9e1, #a9f8dd)
-2. **Bright-on-bright text**: Purple text on bright blue backgrounds, cyan text on backgrounds - very hard to read
-3. **Image overload**: Background images with parallax effects, plus more images layered on top of those backgrounds
-4. **Inconsistent typography**: Three different font families with no clear hierarchy
-5. **Poor accessibility**: Many color combinations fail WCAG contrast requirements
+## Problems Solved From Original Site
+The redesign fixed these major issues:
+- ❌ → ✅ Color chaos (multiple purples/cyans) → Clean 2-color palette
+- ❌ → ✅ Bright-on-bright text → High contrast text with proper overlays
+- ❌ → ✅ Image overload/layering → One image per section
+- ❌ → ✅ Inconsistent typography → Single font family with clear hierarchy
+- ❌ → ✅ Poor accessibility → WCAG compliant contrast ratios
 
 ## Design System for This Redesign
 
@@ -91,75 +91,36 @@ I'm redesigning the homepage for yogavanessa.com, a yoga and massage wellness bu
 - OR white background with colored border-top
 - Large, prominent CTA button
 
-## Image Integration Instructions
+## Current Image Implementation
 
-When integrating Vanessa's actual photos:
+All images are integrated and displaying correctly:
+- **Hero**: `aspen-trees.jpg` - energetic golden aspens with overlay for text
+- **Massage**: `massage-background.jpg` - warm therapy scene
+- **Yoga Card**: `yoga-pose.png` - aerial B&W pose
+- **Retreats Card**: `retreats.png` - Hawaiian beach
+- **Resources Card**: `cookbook.jpg` - Community Cookbook cover
+- **Gift Certificates**: `waterfall-background.jpg` - serene landscape with overlay
+- **Navigation**: `logo.png` - colorful logo (40px height)
 
-1. **Replace placeholder SVG backgrounds** with real image URLs
-2. **Use high-quality photos** that show:
-   - Yoga poses in natural light
-   - Massage therapy in calm settings
-   - Retreat locations (beaches, nature)
-   - Resource materials (books, community)
-
-3. **Image optimization**:
-   - Use appropriate sizes (don't load 4K images)
-   - Consider using `object-fit: cover` to maintain aspect ratios
-   - Add alt text for accessibility
-
-4. **Maintain the clean approach**:
-   - One hero image in hero section
-   - One image per service card
-   - One image per content section
-   - NO overlapping/layered images
+**Unused Images** (available for future pages):
+- `headshot.jpg` - professional portrait (good for About page)
+- `waterfall-video.jpg` - alternate waterfall image
 
 ## Code Editing Guidelines
 
-When making changes to this HTML file:
+**Critical Rules When Making Changes:**
 
-1. **Maintain color consistency**: Only use colors from the design system
-2. **Keep spacing rhythm**: Use 5rem, 3rem, 2rem, 1rem for consistent spacing
-3. **Preserve accessibility**: All text must have 4.5:1 contrast minimum
-4. **Don't add complexity**: The goal is SIMPLE and CLEAN
-5. **Test responsiveness**: Check that changes work on mobile (max-width: 768px)
+1. **Color Consistency**: Only use design system colors (cyan #70d9e1, purple #5848b7, neutrals)
+2. **Spacing Rhythm**: Use 5rem, 3rem, 2rem, 1rem for consistency
+3. **Accessibility**: Maintain 4.5:1 contrast ratio minimum on all text
+4. **Simplicity**: Don't add complexity - goal is CLEAN and PROFESSIONAL
+5. **Responsive**: Test on mobile (max-width: 768px breakpoint)
 
-## Common Edits You Might Need Help With
+**Common Tasks:**
 
-### Adding Real Images
-```css
-/* Replace this kind of placeholder */
-.hero {
-    background: linear-gradient(...), url('placeholder.svg');
-}
-
-/* With actual image */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('path/to/real-image.jpg');
-    background-size: cover;
-    background-position: center;
-}
-```
-
-### Adjusting Image Overlays for Readability
-If text is hard to read on a photo, increase the overlay darkness:
-```css
-/* Make overlay darker */
-background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image.jpg');
-```
-
-### Adding New Service Cards
-Follow the existing pattern:
-- Same structure as existing cards
-- Use approved colors only
-- Maintain consistent padding (2rem on .service-content)
-- Keep card shadows subtle: `box-shadow: 0 5px 20px rgba(0,0,0,0.08);`
-
-### Adjusting for Weebly Constraints
-If certain CSS properties don't work in Weebly:
-- Simplify grid to flexbox if needed
-- Use inline styles as fallback
-- Keep class names semantic for easy mapping to Weebly's editor
+- **Adjust overlay darkness**: Change `rgba(0,0,0,0.35)` to `rgba(0,0,0,0.5)` etc.
+- **Add service cards**: Follow existing pattern with same padding (2rem), shadows, and structure
+- **Update links**: Replace placeholder anchors (`#booking`, `#contact`) with actual URLs
 
 ## Responsive Design Requirements
 
@@ -180,25 +141,14 @@ Mobile breakpoint: 768px
 ❌ Don't create sections without proper spacing (minimum 3rem padding)
 ❌ Don't place bright purple on bright cyan backgrounds
 
-## Questions to Ask Me
+## When to Ask Questions
 
-If you're unsure about something, ask about:
-- Which of Vanessa's original images should go where?
-- Whether a specific color combination is acceptable
-- If a layout change maintains the "clean and professional" goal
-- Whether additional sections are needed
-- How to handle any content that doesn't fit the current structure
-
-## Success Criteria
-
-The redesign is successful if:
-✅ All text is easily readable (good contrast)
-✅ Color palette is limited to cyan + purple + neutrals
-✅ Each section has clear purpose and breathing room
-✅ No images are layered on other images
-✅ Design feels professional, calm, and welcoming
-✅ Site works well on mobile devices
-✅ Maintains Vanessa's brand identity (bright, welcoming) without overwhelming visitors
+Ask the user for clarification when:
+- Color combinations might violate the design system
+- Layout changes could compromise the "clean and professional" goal
+- Additional sections or features are needed
+- Content doesn't fit the current structure
+- Weebly migration strategy needs adjustment
 
 ## Current File Status - COMPLETED PHASE 1 ✅
 
@@ -245,49 +195,44 @@ All real images from the original yogavanessa.com have been successfully integra
 ## Next Steps - PHASE 2
 
 ### Immediate Priorities
-1. **Deploy to GitHub Pages**
-   - Create GitHub repository
-   - Push code to GitHub
-   - Enable GitHub Pages in repository settings
-   - Test live site at github.io URL
-
-2. **Content Refinement**
+1. **Content Refinement**
    - Review all copy for accuracy
    - Update contact information/links
    - Verify all button URLs point to correct destinations
    - Add actual booking system link (replace `#booking`)
+   - Update navigation anchors (`#yoga`, `#retreats`, `#resources`, `#contact`)
 
-3. **Responsive Testing**
+2. **Responsive Testing**
    - Test on mobile devices (iOS, Android)
    - Test on tablets
    - Verify all images scale properly
    - Check navigation behavior on small screens
 
 ### Future Enhancements
-4. **Additional Pages** (if needed)
+3. **Additional Pages** (if needed)
    - About page with headshot.jpg
    - Class schedule page
    - Retreat details pages
    - Contact/booking form page
 
-5. **Performance Optimization**
+4. **Performance Optimization**
    - Compress images for faster loading (especially retreats.png and aspen-trees.jpg)
    - Consider WebP format for better compression
    - Add lazy loading to images below the fold
    - Minify CSS
 
-6. **SEO & Meta Tags**
+5. **SEO & Meta Tags**
    - Add meta descriptions
    - Add Open Graph tags for social sharing
    - Add favicon
    - Create sitemap.xml
 
-7. **Analytics & Tracking**
+6. **Analytics & Tracking**
    - Add Google Analytics
    - Set up conversion tracking for booking buttons
    - Track scroll depth and engagement
 
-8. **Custom Domain** (Optional)
+7. **Custom Domain** (Optional)
    - Configure DNS with domain registrar
    - Add CNAME file
    - Set up custom domain in GitHub Pages
