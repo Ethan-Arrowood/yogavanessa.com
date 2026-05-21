@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%%title%%</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main_style.css">
+    %%header%%
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="logo">
+            <img src="logo.png" alt="Blissful Life">
+        </a>
+        <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        %%menu%%
+    </div>
+</nav>
+
+<section class="hero" role="img" aria-label="Golden aspen trees reaching toward blue sky">
+    <div class="hero-content">
+        <h1>{hero-headline:text}</h1>
+        <!-- default: Blissful Life -->
+        <p class="tagline">{hero-tagline:text}</p>
+        <!-- default: Why feel okay, when you can feel great? -->
+        <p class="hero-description">{hero-description:text}</p>
+        <!-- default: Therapeutic massage services designed to help you relax, recover, and rejuvenate. Whether you're seeking relief from tension or treating yourself to self-care, we're here to support your wellness journey. -->
+        <a href="#booking" class="btn btn-primary">{hero-cta-label:text}</a>
+        <!-- default: Book a Massage -->
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">{services-heading:text}</h2>
+        <!-- default: Services -->
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-image">
+                    {service-massage-image:image max-width="800" max-height="600"}
+                </div>
+                <div class="service-content">
+                    <h3>{service-massage-title:text}</h3>
+                    <!-- default: Massage Therapy -->
+                    <p>{service-massage-body:text}</p>
+                    <!-- default: Therapeutic massage designed to help you relax, recover, and rejuvenate. Specializing in Polarity, Trigger Point, Acupressure, Hawaiian, Thai, and more. -->
+                    <a href="#booking" class="btn btn-secondary">Book a Massage</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    {service-yoga-image:image max-width="800" max-height="600"}
+                </div>
+                <div class="service-content">
+                    <h3>{service-yoga-title:text}</h3>
+                    <!-- default: Yoga -->
+                    <p>{service-yoga-body:text}</p>
+                    <!-- default: Experience transformative yoga classes designed for all levels. From gentle flows to dynamic vinyasa, find your practice and deepen your connection to mind and body. -->
+                    <a href="#yoga" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    {service-retreats-image:image max-width="800" max-height="600"}
+                </div>
+                <div class="service-content">
+                    <h3>{service-retreats-title:text}</h3>
+                    <!-- default: Retreats -->
+                    <p>{service-retreats-body:text}</p>
+                    <!-- default: Join us for rejuvenating retreats in beautiful locations. Escape the everyday and immerse yourself in wellness, nature, and community. -->
+                    <a href="#retreats" class="btn btn-secondary">View Retreats</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    {service-resources-image:image max-width="800" max-height="600"}
+                </div>
+                <div class="service-content">
+                    <h3>{service-resources-title:text}</h3>
+                    <!-- default: Blissful Life Resources -->
+                    <p>{service-resources-body:text}</p>
+                    <!-- default: Access guides, recipes, and tools to support your wellness journey. From the Sivananda Companion to our Community Cookbook, find inspiration here. -->
+                    <a href="#resources" class="btn btn-secondary">Explore Resources</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="gift-certificates" role="img" aria-label="Serene Icelandic waterfall with rocky landscape">
+    <div class="container">
+        <h2>{gift-heading:text}</h2>
+        <!-- default: Massage Gift Certificates -->
+        <p>{gift-body:text}</p>
+        <!-- default: Share the gift of wellness with someone special. Perfect for birthdays, holidays, or just because. -->
+        <a href="#gift" class="btn btn-primary">Purchase Gift Certificate</a>
+    </div>
+</section>
+
+<section class="bio-section">
+    <div class="bio-container">
+        <div class="bio-image">
+            {bio-headshot:image max-width="300" max-height="300"}
+        </div>
+        <div class="bio-content">
+            <h2>{bio-name:text}</h2>
+            <!-- default: Vanessa Charles -->
+            <p class="bio-subtitle">{bio-subtitle:text}</p>
+            <!-- default: Owner, BA, LMP, CYT -->
+            <p class="bio-credentials">{bio-credentials:text}</p>
+            <!-- default: A yoga instructor with over 20 years of experience and a massage therapist for more than 14 years. -->
+            <div class="bio-paragraphs">
+                {bio-paragraphs:content}
+            </div>
+            <h3>{bio-education-heading:text}</h3>
+            <!-- default: Trainings and Education -->
+            <div class="bio-education-wrap">
+                {bio-education:content}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <div class="container">
+        <h2>{cta-heading:text}</h2>
+        <!-- default: Ready to Begin Your Journey? -->
+        <p>{cta-body:text}</p>
+        <!-- default: Join our community and start feeling your best today. -->
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+    </div>
+</section>
+
+<div class="wsite-content">
+    %%content%%
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            %%menu%%
+        </div>
+        <p>%%footer%%</p>
+    </div>
+</footer>
+
+<script src="theme.js"></script>
+%%footer_scripts%%
+</body>
+</html>
