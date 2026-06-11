@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "name": "Blissful Life",
+  "author": "Ethan Arrowood",
+  "colors": [
+    {
+      "name": "Default",
+      "primary": "#5848b7",
+      "secondary": "#70d9e1",
+      "background": "#ffffff",
+      "text": "#333333"
+    }
+  ],
+  "fonts": {
+    "heading": "Quattrocento",
+    "body": "Quattrocento"
+  },
+  "responsive": true
+}
